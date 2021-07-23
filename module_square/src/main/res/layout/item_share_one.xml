@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_sharer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+
+    <TextView
+        android:id="@+id/tv_sharer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_new"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:layout_marginEnd="5dp"
+        android:layout_alignBottom="@id/tv_sharer"
+        android:layout_toStartOf="@id/tv_sharer"/>
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_new"
+        android:layout_alignParentEnd="true"
+        android:textSize="13sp"
+        android:textColor="@android:color/darker_gray"/>
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/tv_sharer"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="10dp"
+        android:textSize="13sp"/>
+
+    <com.like.LikeButton
+        android:id="@+id/lb_sharer"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:icon_size="20dp"
+        app:icon_type="heart"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/tv_tag"
+        />
+
+</RelativeLayout>

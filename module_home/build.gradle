@@ -1,0 +1,21 @@
+apply from: "${rootProject.rootDir}/config/project_config.gradle"
+project.ext.setAppOrLibConfig project
+
+android {
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api project(path: ':module_common')
+    def tools = rootProject.ext.tools
+    kapt tools.arouter_compiler
+    def android = rootProject.ext.android
+    implementation android.hilt
+    kapt android.hilt_compiler
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyButtonStyle" >
+        <item name="android:background" >@drawable/shape_btn_share</item>
+        <item name="android:textColor" >#ffffff</item>
+        <item name="android:textSize" >16sp</item>
+    </style>
+</resources>

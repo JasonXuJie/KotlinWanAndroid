@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp"
+        android:layout_below="@id/tv_author"
+        android:layout_marginTop="10dp"
+        android:maxLines="3"
+        android:layout_toStartOf="@id/iv_cover"/>
+    
+    
+    <com.like.LikeButton
+        android:id="@+id/lb_like_num"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:icon_size="20dp"
+        app:liked="true"
+        app:is_enabled="false"
+        app:icon_type="heart"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_like_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_d3"
+        android:textSize="16sp"
+        android:layout_alignBottom="@id/lb_like_num"
+        android:layout_toEndOf="@id/lb_like_num"
+        android:layout_marginStart="5dp"/>
+
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_centerVertical="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

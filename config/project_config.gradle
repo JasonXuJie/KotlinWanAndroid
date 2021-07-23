@@ -1,0 +1,213 @@
+project.ext{
+
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.3"
+    applicationId = "com.jason.application"
+    minSdkVersion = 21
+    targetSdkVersion = 30
+    versionCode = 1
+    versionName = "1.0"
+
+    //是否允许module单独调试
+    isModuleDebug = false
+
+    //设置app配置
+    setAppConfig = {
+        extension ->
+            extension.apply plugin :'com.android.application'
+            extension.description "app"
+            extension.apply plugin :'kotlin-android'
+            extension.apply plugin :'kotlin-android-extensions'
+            extension.apply plugin :'kotlin-kapt'
+            extension.apply plugin: 'dagger.hilt.android.plugin'
+            //设置通用Android配置
+            setAppAndroidConfig extension.android
+    }
+
+    //设置lib配置（只可以作为lib,不可单独调试）
+    setLibConfig = {
+        extension ->
+            extension.apply plugin: 'com.android.library'
+            extension.description "lib"
+            extension.apply plugin: 'kotlin-android'
+            extension.apply plugin :'kotlin-android-extensions'
+            extension.apply plugin: 'kotlin-kapt'
+            if (project.name != 'lib_net' && project.name != 'lib_router'){
+                extension.apply plugin: 'dagger.hilt.android.plugin'
+            }
+
+            //设置通用Android配置
+            setLibAndroidConfig extension.android
+    }
+
+
+    setAppOrLibConfig = {
+        extension ->
+            if (project.ext.isModuleDebug){
+                extension.apply plugin :'com.android.application'
+                extension.description "app"
+                extension.apply plugin :'kotlin-android'
+                extension.apply plugin :'kotlin-android-extensions'
+                extension.apply plugin :'kotlin-kapt'
+                extension.apply plugin: 'dagger.hilt.android.plugin'
+            }else{
+                extension.apply plugin: 'com.android.library'
+                extension.description "lib"
+                extension.apply plugin: 'kotlin-android'
+                extension.apply plugin: 'kotlin-android-extensions'
+                extension.apply plugin: 'kotlin-kapt'
+                extension.apply plugin: 'dagger.hilt.android.plugin'
+            }
+            setAppOrLibAndroidConfig extension.android
+    }
+
+
+    //设置app android配置
+    setAppAndroidConfig = {
+        extension ->//extension 相当于 android 对象
+            extension.compileSdkVersion project.ext.compileSdkVersion
+            extension.buildToolsVersion project.ext.buildToolsVersion
+            extension.defaultConfig {
+                applicationId project.ext.applicationId
+                minSdkVersion project.ext.minSdkVersion
+                targetSdkVersion project.ext.targetSdkVersion
+                versionCode project.ext.versionCode
+                versionName project.ext.versionName
+                multiDexEnabled true
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+                //ARouter 编译生成路由
+//                javaCompileOptions {
+//                    annotationProcessorOptions {
+//                        arguments = [AROUTER_MODULE_NAME: extension.project.getName()]
+//                    }
+//                }
+                kapt {
+                    arguments {
+                        arg("AROUTER_MODULE_NAME", project.getName())
+                    }
+                }
+            }
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+            extension.kotlinOptions {
+                jvmTarget = '1.8'
+            }
+
+            extension.viewBinding {
+                enabled = true
+            }
+
+            androidExtensions {
+                experimental = true
+            }
+    }
+
+    //设置lib android配置（只可以作为lib,不可单独调试）
+    setLibAndroidConfig = {
+        extension -> //extension 相当于 android 对象
+            extension.compileSdkVersion project.ext.compileSdkVersion
+            extension.buildToolsVersion project.ext.buildToolsVersion
+            extension.defaultConfig {
+                minSdkVersion project.ext.minSdkVersion
+                targetSdkVersion project.ext.targetSdkVersion
+                versionCode project.ext.versionCode
+                versionName project.ext.versionName
+                multiDexEnabled true
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+                //ARouter 编译生成路由
+//                javaCompileOptions {
+//                    annotationProcessorOptions {
+//                        arguments = [AROUTER_MODULE_NAME: extension.project.getName()]
+//                    }
+//                }
+            }
+
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+
+            extension.kotlinOptions {
+                jvmTarget = '1.8'
+            }
+
+            extension.viewBinding {
+                enabled = true
+            }
+
+            androidExtensions {
+                experimental = true
+            }
+    }
+
+
+    //设置lib android配置（可作为project单独调试）
+    setAppOrLibAndroidConfig = {
+        extension -> //extension 相当于 android 对象
+            extension.compileSdkVersion project.ext.compileSdkVersion
+            extension.buildToolsVersion project.ext.buildToolsVersion
+            extension.defaultConfig {
+                if (project.ext.isModuleDebug) {
+                    applicationId project.ext.applicationId
+                }
+                minSdkVersion project.ext.minSdkVersion
+                targetSdkVersion project.ext.targetSdkVersion
+                versionCode project.ext.versionCode
+                versionName project.ext.versionName
+                multiDexEnabled true
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+                //ARouter 编译生成路由
+//                javaCompileOptions {
+//                    annotationProcessorOptions {
+//                        arguments = [AROUTER_MODULE_NAME: extension.project.getName()]
+//                    }
+//                }
+                kapt {
+                    arguments {
+                        arg("AROUTER_MODULE_NAME", project.getName())
+                    }
+                }
+            }
+
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+
+            extension.kotlinOptions {
+                jvmTarget = '1.8'
+            }
+
+            extension.viewBinding {
+                enabled = true
+            }
+
+            androidExtensions {
+                experimental = true
+            }
+
+            extension.sourceSets {
+                main {
+                    if (project.ext.isModuleDebug) {
+                        manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+                    } else {
+                        manifest.srcFile 'src/main/AndroidManifest.xml'
+                        java{
+                            exclude 'src/main/java/debug/**'
+                        }
+                    }
+                }
+            }
+    }
+
+
+
+
+
+
+}

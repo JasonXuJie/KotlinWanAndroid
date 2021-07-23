@@ -1,0 +1,26 @@
+apply from: "${rootProject.rootDir}/config/project_config.gradle"
+project.ext.setAppConfig project
+
+android {
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    def android = rootProject.ext.android
+    implementation android.multidex
+    implementation android.hilt
+    kapt android.hilt_compiler
+    implementation project(path: ':module_main')
+    //implementation project(path: ':module_common')
+//    if (!project.ext.isModuleDebug) {
+//        implementation project(path: ':module_main')
+//    }
+//    implementation 'com.android.support:multidex:1.0.3'
+}

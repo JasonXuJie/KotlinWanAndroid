@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.ShareActivity"
+    android:orientation="vertical"
+    >
+
+    <include
+        layout="@layout/app_bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/art_title"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_refresh_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/refresh_title"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_marginEnd="12dp"/>
+
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="100"
+            android:maxLines="1"
+            android:hint="@string/word_limit"
+            android:layout_below="@id/tv_title"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="6dp"
+            android:background="@null"
+            />
+
+        <TextView
+            android:id="@+id/tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/word_link"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@id/et_title"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_open_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open_link"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/tv_link"
+            android:layout_marginEnd="12dp"
+            />
+
+
+        <EditText
+            android:id="@+id/et_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:hint="@string/link_tips"
+            android:layout_below="@id/tv_link"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="6dp"
+            android:background="@null"
+            />
+
+        <TextView
+            android:id="@+id/btn_share"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="@string/share"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/et_link"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:background="@drawable/shape_btn_share"/>
+    </RelativeLayout>
+
+</LinearLayout>

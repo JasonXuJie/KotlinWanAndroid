@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">module_square</string>
+    <string name="square">广场</string>
+    <string name="share">分享</string>
+    <string name="art_title">文章标题</string>
+    <string name="refresh_title">刷新标题</string>
+    <string name="word_limit">100字以内</string>
+    <string name="word_link">文章链接</string>
+    <string name="open_link">打开链接</string>
+    <string name="link_tips">如https://www.baidu.com</string>
+    <string name="tips_share_one">这个人很懒什么都没留下</string>
+</resources>

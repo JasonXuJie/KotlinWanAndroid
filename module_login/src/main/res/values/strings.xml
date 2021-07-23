@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">module_login</string>
+    <string name="text_username">请输入用户名</string>
+    <string name="text_pwd">请输入密码</string>
+    <string name="text_repwd">请再次确认密码</string>
+    <string name="login">登陆</string>
+    <string name="register">注册</string>
+</resources>

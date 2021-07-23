@@ -1,0 +1,69 @@
+apply from: "${rootProject.rootDir}/config/project_config.gradle"
+project.ext.setLibConfig project
+
+android {
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api project(path: ':lib_net')
+    api project(path: ':lib_router')
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    def kotlin = rootProject.ext.kotlin
+    api kotlin.ktx_core
+    api kotlin.lifecycle_extensions
+    api kotlin.lifecycle_viewmodel
+    api kotlin.coroutines
+    def android = rootProject.ext.android
+    api android.appcompat
+    api android.material
+    api android.constraintlayout
+    api android.recyclerview
+    api android.cardview
+    api android.flexbox
+    //api android.nav_fragment
+    //api android.nav_ui
+    api android.nav_fragment_ktx
+    api android.nav_ui_ktx
+    api android.paging_runtime
+    api android.paging_common
+    //api android.room
+    //kapt android.room_compiler
+    //api android.room_ktx
+    api android.startup
+    api android.workerManager
+    api android.camera2
+    api android.camera_lifecycle
+    api android.camera_view
+    implementation android.hilt
+    kapt android.hilt_compiler
+    def tools = rootProject.ext.tools
+    implementation tools.mmkv
+    implementation tools.logger
+    implementation tools.permissionX
+    implementation tools.lottie
+    api tools.toast
+    api tools.coil
+    api tools.smart_refresh
+    api tools.classics_header
+    api tools.banner
+    api (tools.vlayout) {
+        transitive = true
+    }
+    api tools.immersionbar
+    api tools.immersionbar_components
+    api tools.immersionbar_ktx
+    api tools.likebutton
+
+
+
+
+
+}

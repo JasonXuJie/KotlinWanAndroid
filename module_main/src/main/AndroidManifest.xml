@@ -4,7 +4,8 @@
 
     <application
         >
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".ui.activity.SplashActivity"
+            android:theme="@style/Theme.KotlinWanAndroid.LAUNCHER">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

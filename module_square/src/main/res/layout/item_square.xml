@@ -4,7 +4,8 @@
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="?android:selectableItemBackground">
 
     <TextView
         android:id="@+id/tv_share_one"

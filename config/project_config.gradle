@@ -94,10 +94,26 @@ project.ext{
             }
             extension.kotlinOptions {
                 jvmTarget = '1.8'
+                useIR = true
             }
 
             extension.viewBinding {
                 enabled = true
+            }
+
+            extension.buildFeatures {
+                compose true
+            }
+
+            extension.composeOptions {
+                kotlinCompilerExtensionVersion compose_version
+                kotlinCompilerVersion kotlin_version
+            }
+
+            extension.packagingOptions {
+                resources {
+                    excludes += '/META-INF/{AL2.0,LGPL2.1}'
+                }
             }
 
             androidExtensions {
@@ -133,6 +149,7 @@ project.ext{
 
             extension.kotlinOptions {
                 jvmTarget = '1.8'
+                useIR = true
             }
 
             extension.viewBinding {
@@ -181,10 +198,26 @@ project.ext{
 
             extension.kotlinOptions {
                 jvmTarget = '1.8'
+                useIR = true
             }
 
             extension.viewBinding {
                 enabled = true
+            }
+
+            extension.buildFeatures {
+                compose true
+            }
+
+            extension.composeOptions {
+                kotlinCompilerExtensionVersion compose_version
+                kotlinCompilerVersion kotlin_version
+            }
+
+            extension.packagingOptions {
+                resources {
+                    excludes += '/META-INF/{AL2.0,LGPL2.1}'
+                }
             }
 
             androidExtensions {

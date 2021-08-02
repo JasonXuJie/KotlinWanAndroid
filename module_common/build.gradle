@@ -44,6 +44,16 @@ dependencies {
     api android.camera_view
     implementation android.hilt
     kapt android.hilt_compiler
+    api android.compose_ui
+    api android.compose_tooling
+    api android.compose_foundation
+    api android.compose_materical
+    api android.compose_icons
+    api android.compose_icons_ext
+    api android.compose_activity
+    api android.compose_viewmodel
+    api android.compose_livedata
+    api android.compose_rxjava2
     def tools = rootProject.ext.tools
     implementation tools.mmkv
     implementation tools.logger

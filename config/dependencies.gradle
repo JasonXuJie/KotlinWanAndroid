@@ -1,5 +1,6 @@
 ext {
 
+    def composeVersion = '1.0.0'
 
     android = [
             appcompat       : 'androidx.appcompat:appcompat:1.1.0',
@@ -50,7 +51,27 @@ ext {
             camera_lifecycle: "androidx.camera:camera-lifecycle:1.0.0-beta07",
             // CameraX View class
             camera_view     : "androidx.camera:camera-view:1.0.0-alpha14",
-            multidex        : 'com.android.support:multidex:1.0.3'
+            multidex        : 'com.android.support:multidex:1.0.3',
+            //compose
+            compose_ui: "androidx.compose.ui:ui:${composeVersion}",
+            // Tooling support (Previews, etc.)
+            compose_tooling: "androidx.compose.ui:ui-tooling:${composeVersion}",
+            // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+            compose_foundation: "androidx.compose.foundation:foundation:${composeVersion}",
+            // Material Design
+            compose_materical: "androidx.compose.material:material:${composeVersion}",
+            // Material design icons
+            compose_icons: "androidx.compose.material:material-icons-core:${composeVersion}",
+            compose_icons_ext: "androidx.compose.material:material-icons-extended:${composeVersion}",
+            // Integration with activities
+            compose_activity: 'androidx.activity:activity-compose:1.3.0-rc02',
+            // Integration with ViewModels
+            compose_viewmodel: 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07',
+            // Integration with observables
+            compose_livedata: "androidx.compose.runtime:runtime-livedata:${composeVersion}",
+            compose_rxjava2: "androidx.compose.runtime:runtime-rxjava2:${composeVersion}",
+            // UI Tests  androidTestImplementation
+            compose_testing: "androidx.compose.ui:ui-test-junit4:${composeVersion}"
     ]
 
     http = [

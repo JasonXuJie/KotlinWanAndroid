@@ -1,59 +1,55 @@
 package com.jason.main.ui.activity
 
-import android.view.LayoutInflater
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import androidx.activity.viewModels
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.jason.common.base.BaseActivity
-import com.jason.common.utils.MyLog
+import com.jason.common.ui.theme.*
 import com.jason.main.R
-import com.jason.main.databinding.ActivitySplashBinding
 import com.jason.main.vm.SplashViewModel
 import com.jason.router.Routes
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 @Route(path = Routes.SPLASH)
-class SplashActivity :BaseActivity<ActivitySplashBinding,SplashViewModel>() {
+class SplashActivity : ComponentActivity() {
 
-    private lateinit var animation:Animation
-    private val splashViewModel : SplashViewModel by viewModels()
-
-    override fun getBind(): ActivitySplashBinding = ActivitySplashBinding.inflate(layoutInflater)
-
-    override fun getVM(): SplashViewModel = splashViewModel
-
-    override fun initViews() {
-        animation = AnimationUtils.loadAnimation(this,R.anim.anim_rotate)
-        binding.ivIcon.startAnimation(animation)
-        animation.setAnimationListener(object:Animation.AnimationListener{
-
-            override fun onAnimationStart(p0: Animation?) {
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            KotlinWanAndroidTheme {
+                ContentView()
             }
-
-            override fun onAnimationEnd(p0: Animation?) {
-                viewModel!!.openToGuide()
-                finish()
-
-            }
-
-            override fun onAnimationRepeat(p0: Animation?) {
-
-            }
-
-        })
+        }
     }
 
-    override fun initData() {
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding.ivIcon.clearAnimation()
-        animation.cancel()
+    @Composable
+    private fun ContentView() {
+        val vm : SplashViewModel = viewModel()
+        vm.openToGuide()
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .background(color = ColorPrimary),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally) {
+            Image(painter = painterResource(id = com.jason.common.R.drawable.app_icon),
+                contentDescription = null,modifier = Modifier.size(70.dp,70.dp))
+            Spacer(modifier = Modifier.size(10.dp))
+            Text(text = stringResource(id = R.string.main_app_name), style = whiteBold14)
+        }
     }
 
 }
+
+

@@ -54,6 +54,8 @@ dependencies {
     api android.compose_viewmodel
     api android.compose_livedata
     api android.compose_rxjava2
+    api android.compose_pager
+    api android.paging_compose
     def tools = rootProject.ext.tools
     implementation tools.mmkv
     implementation tools.logger

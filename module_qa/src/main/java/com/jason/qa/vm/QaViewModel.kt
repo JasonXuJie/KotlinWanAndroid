@@ -14,6 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class QaViewModel @Inject constructor(): BaseViewModel() {
 
+
+
     @Inject
     lateinit var repo:QaRepo
 

@@ -156,6 +156,23 @@ project.ext{
                 enabled = true
             }
 
+            if (project.name != 'lib_net' && project.name != 'lib_router'){
+                extension.buildFeatures {
+                    compose true
+                }
+
+                extension.composeOptions {
+                    kotlinCompilerExtensionVersion compose_version
+                    kotlinCompilerVersion kotlin_version
+                }
+
+                extension.packagingOptions {
+                    resources {
+                        excludes += '/META-INF/{AL2.0,LGPL2.1}'
+                    }
+                }
+            }
+
             androidExtensions {
                 experimental = true
             }

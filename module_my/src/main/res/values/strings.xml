@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">module_my</string>
+    <string name="my_submit">提交</string>
+    <string name="hint_feedback">请在这里填写反馈内容</string>
+    <string name="theme">主题模式</string>
+    <string name="about_me">关于我</string>
+    <string name="cur_version">当前版本</string>
+    <string name="cache_size">缓存大小</string>
+    <string name="logout">退出</string>
+
 </resources>

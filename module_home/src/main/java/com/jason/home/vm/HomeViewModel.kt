@@ -1,8 +1,6 @@
 package com.jason.home.vm
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
@@ -22,7 +20,6 @@ class HomeViewModel @Inject constructor(): BaseViewModel() {
     @Inject
     lateinit var repo:HomeRepo
 
-
     val bannerList = MutableLiveData<List<BannerData>>()
 
     val topList = MutableLiveData<List<TopData>>()
@@ -30,6 +27,7 @@ class HomeViewModel @Inject constructor(): BaseViewModel() {
     val bannerErrMsg = MutableLiveData<String>()
 
     val topErrMsg = MutableLiveData<String>()
+
 
     fun loadBanner(){
         launch({
@@ -59,8 +57,6 @@ class HomeViewModel @Inject constructor(): BaseViewModel() {
         return repo.loadArtList().cachedIn(viewModelScope)
     }
 
-    fun loadArtList1():LiveData<PagingData<Article>>{
-        return repo.loadArtList().cachedIn(viewModelScope).asLiveData()
-    }
+
 
 }

@@ -57,7 +57,7 @@ class MyFragment : Fragment(){
                    Image(painter = painterResource(id = com.jason.common.R.drawable.img_header), contentDescription = null,
                    Modifier.size(60.dp))
                    Spacer(modifier = Modifier.size(15.dp))
-                   Text(text = "去登陆",style = whiteNormal12)
+                   Text(text = "去登陆",style = whiteNormal12,modifier = Modifier.clickable { Navigator.push(Routes.LOGIN) })
 
                 }
             }

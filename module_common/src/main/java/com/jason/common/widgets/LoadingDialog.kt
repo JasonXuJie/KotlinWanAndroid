@@ -26,7 +26,7 @@ class LoadingDialog : DialogFragment() {
         return view
     }
 
-    fun show(manager:FragmentManager){
+    fun show(manager: FragmentManager){
         val transaction = manager.beginTransaction()
         transaction.add(this,"loadingView")
         transaction.commitAllowingStateLoss()

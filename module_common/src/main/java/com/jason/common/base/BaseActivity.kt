@@ -80,4 +80,10 @@ abstract class BaseActivity<T : ViewBinding,VM : BaseViewModel?>:AppCompatActivi
     }
 
 
+    override fun onDestroy() {
+        ActivityStack.removeActivity(this)
+        super.onDestroy()
+    }
+
+
 }

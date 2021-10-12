@@ -18,7 +18,7 @@ object PermissionUtil {
         }
     }
 
-    fun request(fragment:Fragment, permissions: String,grantCallback:()->Unit,deniedCallback:()->Unit){
+    fun request(fragment:Fragment, permissions: MutableList<String>,grantCallback:()->Unit,deniedCallback:()->Unit){
         PermissionX.init(fragment).permissions(permissions).request {
                 allGranted, grantedList, deniedList ->
             if (allGranted){

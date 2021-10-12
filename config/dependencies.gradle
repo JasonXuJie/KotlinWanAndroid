@@ -138,7 +138,9 @@ ext {
     test = [
             junit    : 'junit:junit:4.+',
             junit_ext: 'androidx.test.ext:junit:1.1.1',
-            espresso : 'androidx.test.espresso:espresso-core:3.2.0'
+            espresso : 'androidx.test.espresso:espresso-core:3.2.0',
+            //debugImplementation
+            leakcanary: 'com.squareup.leakcanary:leakcanary-android:2.7'
     ]
 
 

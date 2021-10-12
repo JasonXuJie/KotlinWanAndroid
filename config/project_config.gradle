@@ -17,7 +17,6 @@ project.ext{
             extension.apply plugin :'com.android.application'
             extension.description "app"
             extension.apply plugin :'kotlin-android'
-            extension.apply plugin :'kotlin-android-extensions'
             extension.apply plugin :'kotlin-kapt'
             extension.apply plugin: 'dagger.hilt.android.plugin'
             //设置通用Android配置
@@ -30,7 +29,6 @@ project.ext{
             extension.apply plugin: 'com.android.library'
             extension.description "lib"
             extension.apply plugin: 'kotlin-android'
-            extension.apply plugin :'kotlin-android-extensions'
             extension.apply plugin: 'kotlin-kapt'
             if (project.name != 'lib_net' && project.name != 'lib_router'){
                 extension.apply plugin: 'dagger.hilt.android.plugin'
@@ -47,14 +45,14 @@ project.ext{
                 extension.apply plugin :'com.android.application'
                 extension.description "app"
                 extension.apply plugin :'kotlin-android'
-                extension.apply plugin :'kotlin-android-extensions'
+                //extension.apply plugin :'kotlin-android-extensions'
                 extension.apply plugin :'kotlin-kapt'
                 extension.apply plugin: 'dagger.hilt.android.plugin'
             }else{
                 extension.apply plugin: 'com.android.library'
                 extension.description "lib"
                 extension.apply plugin: 'kotlin-android'
-                extension.apply plugin: 'kotlin-android-extensions'
+                //extension.apply plugin: 'kotlin-android-extensions'
                 extension.apply plugin: 'kotlin-kapt'
                 extension.apply plugin: 'dagger.hilt.android.plugin'
             }
@@ -116,9 +114,9 @@ project.ext{
                 }
             }
 
-            androidExtensions {
-                experimental = true
-            }
+//            androidExtensions {
+//                experimental = true
+//            }
     }
 
     //设置lib android配置（只可以作为lib,不可单独调试）
@@ -155,10 +153,7 @@ project.ext{
             extension.viewBinding {
                 enabled = true
             }
-
-            androidExtensions {
-                experimental = true
-            }
+            
     }
 
 
@@ -220,9 +215,9 @@ project.ext{
                 }
             }
 
-            androidExtensions {
-                experimental = true
-            }
+//            androidExtensions {
+//                experimental = true
+//            }
 
             extension.sourceSets {
                 main {

@@ -37,7 +37,6 @@ object ActivityStack {
         for (i in activityStack.indices) {
             if (activityStack[i].javaClass == cls) {
                 finishActivity(activityStack[i])
-                removeActivity(activityStack[i])
                 return
             }
         }

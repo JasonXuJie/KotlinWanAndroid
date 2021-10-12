@@ -9,6 +9,7 @@ interface QaService {
 
 
     @GET("wenda/list/{page}/json ")
+
     suspend fun loadList(@Path("page") page:Int):BaseResult<QaData>
 
 }
